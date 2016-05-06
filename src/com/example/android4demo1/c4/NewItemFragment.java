@@ -10,6 +10,7 @@ import android.text.Editable;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnFocusChangeListener;
 import android.view.View.OnKeyListener;
 import android.view.ViewGroup;
 import android.widget.EditText;
@@ -48,13 +49,14 @@ public class NewItemFragment extends Fragment {
 						String newItem = myEditText.getText().toString();
 						onNewItemAddedListener.onNewItemAdded(newItem);
 						myEditText.setText("");
+						myEditText.clearFocus();
+						myEditText.setSelected(true);
 						return true;
 					}
 				}
 				return false;
 			}
 		});
-
 		return view;
 	}
 
